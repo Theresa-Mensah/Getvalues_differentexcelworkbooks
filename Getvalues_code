@@ -1,0 +1,19 @@
+import openpyxl
+
+#specify the files you want to work with
+excel_files = ['C:\\Users\\Theresa Wiafe\\Downloads\\Getvaluesfromworkbooks.xlsx','C:\\Users\\Theresa Wiafe\\Downloads\\Getvaluesworkbook2.xlsx']
+#Note: make sure that you use "\\" instead of '\' which comes as default when you copy the path otherwise the code will not work
+values=[]
+
+#we want to loop through each single file in our file list 
+for file in excel_files:
+    workbook=openpyxl.load_workbook(file)
+    #specify the name of the worksheet you want to work with
+    worksheet= workbook['salesorders']
+    # also specify the cell from wich you want to retrieve the info
+    cell_value = worksheet['G11'].value
+    #and append every value to our final list
+    values.append(cell_value)
+
+
+    print(cell_value)
